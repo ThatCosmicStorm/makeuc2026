@@ -13,4 +13,6 @@
         "~/.micropico-stubs/included"
     ],
     "micropico.manualComDevice": "COM10",
+    "micropico.autoConnect": false,
+    "micropico.syncFolder": ""
 }

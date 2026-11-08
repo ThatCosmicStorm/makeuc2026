@@ -73,7 +73,7 @@ def main() -> None:
 
     ldr_1: ADC = ADC(Pin(PIN_LDR_1))
     ldr_2: ADC = ADC(Pin(PIN_LDR_2))
-    pressure: ADC = ADC(Pin(PIN_PRESSURE))
+    pressure: ADC = ADC(Pin(0))
     for sensor in (ldr_1, ldr_2, pressure):
         sensor.atten(ADC.ATTN_11DB)
 

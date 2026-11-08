@@ -19,7 +19,7 @@ PIN_LDR_1 = const(4)
 PIN_LDR_2 = const(5)
 PIN_UV_LED = const(6)
 PIN_DIST_DATA = const(9)
-PIN_DIST_CLOCK = const(18)
+PIN_DIST_CLOCK = const(10)
 
 PROGRAM_RUNNING = const(1)
 

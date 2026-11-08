@@ -68,14 +68,14 @@ def main() -> None:
         )
         is_distance_working: bool = False
 
-    uv_led: Pin = Pin(PIN_UV_LED, mode=Pin.OUT)
-    uv_led.off()
+    # uv_led: Pin = Pin(PIN_UV_LED, mode=Pin.OUT)
+    # uv_led.off()
 
-    ldr_1: ADC = ADC(Pin(PIN_LDR_1))
-    ldr_2: ADC = ADC(Pin(PIN_LDR_2))
-    pressure: ADC = ADC(Pin(0))
-    for sensor in (ldr_1, ldr_2, pressure):
-        sensor.atten(ADC.ATTN_11DB)
+    # ldr_1: ADC = ADC(Pin(PIN_LDR_1))
+    # ldr_2: ADC = ADC(Pin(PIN_LDR_2))
+    # pressure: ADC = ADC(Pin(PIN_PRESSURE))
+    # for sensor in (ldr_1, ldr_2, pressure):
+    #     sensor.atten(ADC.ATTN_11DB)
 
     try:
         while PROGRAM_RUNNING:
@@ -85,13 +85,13 @@ def main() -> None:
                     distance.read_range_single_millimeters()
                     if is_distance_working
                     else "N/A":<4} mm""",
-                f"LDR 1: {ldr_1.read():<4} ohms",
-                f"LDR 2: {ldr_2.read():<4} ohms",
-                f"Pressure: {pressure.read():<4} ohms",
-                f"LED Indicator: {uv_led.value():<1}",
-                sep="\n",
+                # f"LDR 1: {ldr_1.read():<4} ohms",
+                # f"LDR 2: {ldr_2.read():<4} ohms",
+                # f"Pressure: {pressure.read():<4} ohms",
+                # f"LED Indicator: {uv_led.value():<1}",
+                # sep="\n",
             )
-            toggle(uv_led)
+            # toggle(uv_led)
             time.sleep_ms(100)
     except KeyboardInterrupt:
         pass

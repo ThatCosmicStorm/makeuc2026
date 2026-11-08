@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mqtt/4.3.7/mqtt.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="Battery-hydration">
+
+    <div class="ring-item">
+      <div class="progress-ring battery-ring" data-topic="bottle/battery" style="--pct: 0;">
+        <button class="round-button percentage" onclick="sendMQTT('Percentage')">Battery</button>
+      </div>
+
+    </div>
+
+    <div class="ring-item">
+      <div class="progress-ring hydration-ring" data-topic="bottle/hydration" style="--pct: 0;">
+        <button class="round-button hydration" onclick="sendMQTT('Hydration')">Hydration</button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+
+    <model-viewer center src="Bottle.glb" alt="3D model of the bottle" camera-controls auto-rotate shadow-intensity="1"
+      style="width: 350px; height: 350px;">
+    </model-viewer>
+  </div>
+
+  <div class="rgb-mode">
+    <div class="rgb-control">
+      <label for="rgb">RGB</label>
+      <input type="range" id="rgb" class="rgb-slider" min="0" max="360" value="0">
+      <span id="rgb-preview" class="rgb-preview"></span>
+    </div>
+
+    <button class="round-button" id="mode-button" onclick="sendMQTT('toggle')">Off</button>
+  </div>
+
+  <script src="RGB-slider.js"></script>
+  <script src="main.js"></script>
+</body>
+
+</html>

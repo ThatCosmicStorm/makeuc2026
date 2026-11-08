@@ -1,0 +1,201 @@
+body {
+  font-family: "Comic Sans MS", "Comic Neue", cursive, sans-serif;
+  text-align: center;
+  margin-top: 50px;
+  background-color: #3d3d3d;
+}
+
+.round-button {
+  box-sizing: border-box;
+  width: 120px;
+  height: 120px;
+  border: 3px solid #4a4545;
+  border-radius: 50%;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.1s, filter 0.2s;
+}
+
+.round-button:hover {
+  filter: brightness(1.3);
+}
+
+.round-button:active {
+  transform: scale(0.95);
+}
+
+.percentage {
+  background-color: rgb(37, 37, 37);
+  border: 8px solid rgb(146, 55, 171);
+}
+
+.hydration {
+  background-color: rgb(37, 37, 37);
+  border: 8px solid rgb(146, 55, 171);
+}
+
+
+.capmodel {
+  background-color: rgb(49, 87, 72);
+  box-sizing: border-box;
+  width: 200px;
+  height: 200px;
+  border: none;
+  border-radius: 50%;
+  margin: 5px 50px 50px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.1s, filter 0.2s;
+}
+
+
+
+.rgb-control {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin: 5px 50px 50px;
+  font-weight: bold;
+  color: white;
+}
+
+.rgb-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 220px;
+  height: 16px;
+  border-radius: 8px;
+  outline: none;
+  cursor: pointer;
+  background: linear-gradient(to right,
+      red, yellow, lime, cyan, blue, magenta, red);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Thumb (Chrome, Safari, Edge) */
+.rgb-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: white;
+  border: 3px solid #333;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Thumb (Firefox) */
+.rgb-slider::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: white;
+  border: 3px solid #333;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.rgb-slider:active::-webkit-slider-thumb {
+  transform: scale(0.9);
+}
+
+.rgb-preview {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: hsl(0, 100%, 50%);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.Battery-hydration,
+.rgb-mode {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.capmodel:hover {
+  filter: brightness(1.3);
+}
+
+model-viewer {
+  background: transparent;
+  --poster-color: transparent;
+  display: block;
+  width: 350px;
+  height: 350px;
+  margin: 0 auto;
+  /* auto side margins center it */
+
+}
+
+
+
+
+/* change initial percentage later!! */
+@property --pct {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0;
+}
+
+
+.progress-ring {
+  --button-size: 120px;
+  --thickness: 10px;
+  --track: #dcdce6;
+  margin: 50px;
+
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: calc(var(--button-size) + 2 * var(--thickness));
+  height: calc(var(--button-size) + 2 * var(--thickness));
+  transition: --pct 0.6s ease;
+  /* smooth animation on each update */
+}
+
+.battery-ring {
+  --fill: #4caf50;
+}
+
+.hydration-ring {
+  --fill: #2c61e8;
+}
+
+/* The ring layer, sitting behind the button */
+.progress-ring::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: 50%;
+  background: conic-gradient(var(--fill) calc(var(--pct) * 1%), var(--track) 0);
+}
+
+/* Button sits on top and covers the middle of the ring */
+.progress-ring .round-button {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  box-sizing: border-box;
+  width: var(--button-size);
+  height: var(--button-size);
+  padding: 0;
+}
